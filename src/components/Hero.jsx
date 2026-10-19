@@ -85,7 +85,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
         >
-          Lahore's trusted roof water proofing & heat proofing experts. Joint-free coating that stops
+          Pakistan's trusted roof water proofing & heat proofing experts. Joint-free coating that stops
           leakage and keeps your home cool — starting at just <strong>Rs {RATE} per sq. ft.</strong>
         </motion.p>
 
