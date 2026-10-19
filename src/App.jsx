@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import BeforeAfter from './components/BeforeAfter';
+import Reviews from './components/Reviews';
 import {
   Contact,
   Coverage,
@@ -30,6 +31,7 @@ export default function App() {
         <Process />
         <Pricing />
         <Gallery />
+        <Reviews />
         <Coverage />
         <Faq />
         <Contact />

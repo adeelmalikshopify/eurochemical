@@ -101,6 +101,11 @@ export const BEFORE_AFTER = [
   },
 ];
 
+// Real customer reviews only (with their permission). The section stays hidden while this is empty.
+// Example entry:
+// { name: 'Ahmed K.', area: 'DHA Phase 5, Lahore', text: 'Bohat acha kaam kiya...', time: '6:42 pm', stars: 5 },
+export const REVIEWS = [];
+
 // Placeholder figures — confirm real numbers with the client
 export const STATS = [
   { value: 1200, suffix: '+', label: 'Projects Done' },

@@ -284,6 +284,27 @@ em { font-style: normal; background: linear-gradient(90deg, var(--cyan), #8be3ff
 .modal__note { margin: 14px 0 18px; font-size: 0.8rem; color: #6b7a93; }
 .modal__send { padding: 16px; font-size: 1.05rem; }
 
+/* ---------- Reviews (WhatsApp style) ---------- */
+.reviews { overflow: hidden; overflow: clip; }
+.reviews__marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.reviews__marquee:hover .reviews__track { animation-play-state: paused; }
+.reviews__track { display: flex; gap: 18px; width: max-content; padding: 6px 0 10px; animation: marquee 40s linear infinite; }
+.wa { width: 320px; flex: none; border-radius: 22px; overflow: hidden; background: #0b141a; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.8); }
+.wa__head { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #1f2c34; }
+.wa__avatar { flex: none; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: #04121f; background: linear-gradient(135deg, var(--cyan), #8be3ff); }
+.wa__head strong { display: block; font-size: 0.95rem; line-height: 1.2; }
+.wa__head small { color: #8696a0; font-size: 0.78rem; }
+.wa__stars { margin-left: auto; display: flex; gap: 1px; color: #fbbf24; }
+.wa__chat { padding: 16px 14px 18px; min-height: 150px; background-color: #0b141a; background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px); background-size: 14px 14px; }
+.wa__msg { position: relative; max-width: 92%; margin-left: auto; padding: 9px 12px 22px; border-radius: 12px 0 12px 12px; background: #005c4b; color: #e9edef; font-size: 0.92rem; line-height: 1.5; }
+.wa__msg::after { content: ''; position: absolute; top: 0; right: -8px; border-style: solid; border-width: 10px 8px 0 0; border-color: #005c4b transparent transparent transparent; }
+.wa__msg[dir='rtl'] { font-family: 'Noto Nastaliq Urdu', serif; font-size: 0.95rem; line-height: 2; text-align: right; }
+.wa__meta { position: absolute; right: 10px; bottom: 5px; display: inline-flex; align-items: center; gap: 3px; font-size: 0.68rem; color: rgba(233, 237, 239, 0.65); font-family: 'Outfit', sans-serif; direction: ltr; }
+.wa__meta svg { color: #53bdeb; }
+.wa--placeholder { outline: 2px dashed rgba(251, 191, 36, 0.6); outline-offset: -2px; }
+.reviews__cta { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 26px; color: var(--muted); font-size: 0.95rem; }
+.reviews__cta svg { color: var(--wa); }
+
 /* ---------- Coverage ---------- */
 .regions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .region { padding: 28px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--card); transition: transform 0.4s var(--ease), border-color 0.4s; }
