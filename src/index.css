@@ -337,9 +337,9 @@ a.contact__row:hover { background: rgba(84, 200, 238, 0.12); }
 }
 @media (max-width: 640px) {
   .nav__logo img { height: 38px; }
-  .hero { padding-top: 110px; align-items: flex-start; }
+  .hero { padding: 110px 0 150px; align-items: flex-start; }
   .hero__ctas .btn { flex: 1 1 100%; }
-  .hero__price { width: 104px; height: 104px; bottom: 70px; right: auto; left: 16px; }
+  .hero__price { width: 100px; height: 100px; bottom: 28px; right: auto; left: 16px; }
   .hero__price strong { font-size: 1.6rem; }
   .hero__price small { font-size: 0.65rem; }
   .services { grid-template-columns: 1fr; }

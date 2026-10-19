@@ -1,6 +1,6 @@
-export const PHONE = '+923256833242';
-export const PHONE_DISPLAY = '0325 6833242';
-export const WA_INTL = '923256833242';
+export const PHONE = '+923266032225';
+export const PHONE_DISPLAY = '0326 6032225';
+export const WA_INTL = '923266032225';
 export const RATE = 50; // Rs per sq. ft.
 export const ADDRESS = 'Gajjumata, Main Ferozpur Road, Lahore';
 export const MAP_QUERY = 'Gajjumata, Ferozepur Road, Lahore';
@@ -43,8 +43,8 @@ export const SERVICES = [
     title: 'Bathroom Treatment',
     urdu: 'باتھ روم ٹریٹمنٹ',
     desc: 'Stop dampness reaching the floors and walls below — without breaking your tiles.',
-    price: 'From Rs 18,000',
-    fromPrice: 18000,
+    price: 'From Rs 25,000',
+    fromPrice: 25000,
     icon: 'ShowerHead',
     img: '/media/svc-bath.webp',
     points: ['No tile breaking in most cases', 'Joint & grout sealing', 'Stops ceiling seepage below'],
@@ -109,7 +109,7 @@ export const GALLERY = [
 export const FAQ = [
   {
     q: 'What is the rate per square foot?',
-    a: `Roof water proofing, heat proofing, pool and wall treatment is Rs ${RATE} per sq. ft. Bathroom and water tank treatment starts from Rs 18,000.`,
+    a: `Roof water proofing, heat proofing, pool and wall treatment is Rs ${RATE} per sq. ft. Bathroom treatment starts from Rs 25,000 and water tank treatment from Rs 18,000.`,
   },
   { q: 'Do you give a warranty?', a: 'Yes — every roof job comes with a 5 years written warranty.' },
   { q: 'Which cities do you cover?', a: 'We are based in Lahore and provide services across all Punjab, KPK and Azad Kashmir.' },
