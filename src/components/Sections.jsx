@@ -44,13 +44,15 @@ export function Marquee() {
   const items = ['Roof Water Proofing', 'Heat Proofing', 'Bathroom Treatment', 'Water Tank Treatment', 'Pool Treatment', 'Back Walls Treatment', '5 Years Warranty'];
   const row = [...items, ...items];
   return (
-    <div className="marquee" aria-hidden="true">
-      <div className="marquee__track">
-        {row.map((t, i) => (
-          <span key={i}>
-            {t} <i>✦</i>
-          </span>
-        ))}
+    <div className="marquee-wrap" aria-hidden="true">
+      <div className="marquee">
+        <div className="marquee__track">
+          {row.map((t, i) => (
+            <span key={i}>
+              {t} <i>✦</i>
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
