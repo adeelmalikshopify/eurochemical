@@ -1,0 +1,10 @@
+node_modules
+dist
+.vercel
+.DS_Store
+.playwright-mcp
+
+# original client uploads (optimized copies live in public/media)
+/WhatsApp*
+/EURO Chemicals.jpg.jpeg
+/EURO_LOGO-PNG*
