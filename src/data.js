@@ -82,6 +82,25 @@ export const SERVICES = [
   },
 ];
 
+// Matched pairs: the "after" is the same photo with the treatment applied digitally.
+// Swap in the client's real job photos (same angle, before & after) when available.
+export const BEFORE_AFTER = [
+  {
+    key: 'roof',
+    label: 'Roof',
+    before: '/media/ba-roof-before.webp',
+    after: '/media/ba-roof-after.webp',
+    caption: 'Stained, porous concrete roof → seamless white waterproof & heat-reflective coating.',
+  },
+  {
+    key: 'wall',
+    label: 'Walls (Seelan)',
+    before: '/media/ba-wall-before.webp',
+    after: '/media/ba-wall-after.webp',
+    caption: 'Damp, mould-stained wall → treated, sealed and freshly finished.',
+  },
+];
+
 // Placeholder figures — confirm real numbers with the client
 export const STATS = [
   { value: 1200, suffix: '+', label: 'Projects Done' },

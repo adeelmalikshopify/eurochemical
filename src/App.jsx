@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import BeforeAfter from './components/BeforeAfter';
 import {
   Contact,
   Coverage,
@@ -24,6 +25,7 @@ export default function App() {
         <Marquee />
         <Stats />
         <Services />
+        <BeforeAfter />
         <Why />
         <Process />
         <Pricing />
