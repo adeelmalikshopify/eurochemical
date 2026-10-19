@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   BrickWall,
@@ -21,6 +21,7 @@ import {
 import { Reveal, SectionHead } from './Reveal';
 import Counter from './Counter';
 import { WhatsAppIcon } from './Icons';
+import QuoteModal from './QuoteModal';
 import {
   ADDRESS,
   FAQ,
@@ -36,6 +37,7 @@ import {
 } from '../data';
 
 const ICONS = { Umbrella, Sun, ShowerHead, Container, Waves, BrickWall };
+const PRICED = ['roof', 'heat'];
 
 /* ---------------- Marquee ---------------- */
 export function Marquee() {
@@ -96,6 +98,8 @@ function TiltCard({ children, className }) {
 }
 
 export function Services() {
+  const [quote, setQuote] = useState(null);
+  const closeQuote = useCallback(() => setQuote(null), []);
   return (
     <section id="services" className="section">
       <div className="container">
@@ -125,13 +129,12 @@ export function Services() {
                       ))}
                     </ul>
                     <div className="service__foot">
-                      <a
+                      <button
                         className="service__cta"
-                        href={s.key === 'roof' || s.key === 'heat' ? '#pricing' : waLink(`Assalam o Alaikum! I need a quote for ${s.title}.`)}
-                        {...(s.key === 'roof' || s.key === 'heat' ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+                        onClick={() => setQuote({ title: s.title, icon: <Icon size={24} />, priced: PRICED.includes(s.key) })}
                       >
-                        {s.key === 'roof' || s.key === 'heat' ? 'Calculate Estimate →' : 'Get Free Quote →'}
-                      </a>
+                        {PRICED.includes(s.key) ? 'Calculate Estimate →' : 'Get Free Quote →'}
+                      </button>
                       <a className="service__wa" href={waLink(`Assalam o Alaikum! I need a quote for ${s.title}.`)} target="_blank" rel="noopener noreferrer" aria-label={`Get quote for ${s.title} on WhatsApp`}>
                         <WhatsAppIcon size={18} />
                       </a>
@@ -143,6 +146,7 @@ export function Services() {
           })}
         </div>
       </div>
+      <QuoteModal service={quote} onClose={closeQuote} />
     </section>
   );
 }
@@ -223,6 +227,8 @@ export function Process() {
 /* ---------------- Pricing calculator ---------------- */
 export function Pricing() {
   const [area, setArea] = useState(1000);
+  const [quote, setQuote] = useState(null);
+  const closeQuote = useCallback(() => setQuote(null), []);
   const total = area * RATE;
   return (
     <section id="pricing" className="section pricing">
@@ -281,16 +287,15 @@ export function Pricing() {
             </motion.strong>
             <small>{area.toLocaleString('en-PK')} ft² × Rs {RATE}. Final price confirmed after free inspection.</small>
           </div>
-          <a
+          <button
             className="btn btn--wa btn--block"
-            href={waLink(`Assalam o Alaikum! My roof area is about ${area} sq. ft. (estimate Rs ${total.toLocaleString('en-PK')}). Please book a free inspection.`)}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={() => setQuote({ title: 'Roof Water / Heat Proofing', icon: <Calculator size={24} />, priced: true })}
           >
             <WhatsAppIcon /> Book Free Inspection
-          </a>
+          </button>
         </Reveal>
       </div>
+      <QuoteModal service={quote} initialSqft={area} onClose={closeQuote} />
     </section>
   );
 }
