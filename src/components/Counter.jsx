@@ -15,7 +15,7 @@ export default function Counter({ value, prefix = '', suffix = '' }) {
   return (
     <span ref={ref}>
       {prefix}
-      {n}
+      {n.toLocaleString('en-US')}
       {suffix}
     </span>
   );

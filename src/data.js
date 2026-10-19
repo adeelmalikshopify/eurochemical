@@ -80,11 +80,12 @@ export const SERVICES = [
   },
 ];
 
+// Placeholder figures — confirm real numbers with the client
 export const STATS = [
+  { value: 1200, suffix: '+', label: 'Projects Done' },
+  { value: 850, suffix: '+', label: 'Happy Clients' },
   { value: 5, suffix: ' Yrs', label: 'Warranty' },
   { value: 50, prefix: 'Rs ', label: 'Per sq. ft.' },
-  { value: 100, suffix: '%', label: 'Seamless & joint-free' },
-  { value: 3, label: 'Regions — Punjab, KPK, AJK' },
 ];
 
 export const PROCESS = [
