@@ -69,13 +69,14 @@ em { font-style: normal; background: linear-gradient(90deg, var(--cyan), #8be3ff
 .nav__burger { display: none; margin-left: auto; width: 46px; height: 46px; border-radius: 14px; border: 1px solid var(--border); background: var(--card); place-items: center; }
 
 .mobile-menu {
-  position: fixed; inset: 0; z-index: 60; padding: 90px 28px 40px;
+  position: fixed; inset: 0; z-index: 90; overflow-y: auto; padding: 90px 28px 40px;
   background: radial-gradient(circle at 80% 0%, rgba(84, 200, 238, 0.25), transparent 50%), var(--bg-2);
   display: flex; flex-direction: column; gap: 8px;
 }
 .mobile-menu > a:not(.btn) { font-size: 2rem; font-weight: 700; padding: 10px 0; border-bottom: 1px solid var(--border); display: flex; align-items: baseline; gap: 14px; }
 .mobile-menu > a span { font-size: 0.8rem; color: var(--cyan); font-weight: 500; }
 .mobile-menu .btn { margin-top: auto; }
+.mobile-menu__logo { position: absolute; top: 24px; left: 28px; height: 38px; width: auto; }
 .mobile-menu__close { position: absolute; top: 20px; right: 16px; width: 46px; height: 46px; border-radius: 14px; border: 1px solid var(--border); display: grid; place-items: center; }
 
 /* ---------- Hero ---------- */
@@ -311,6 +312,11 @@ a.contact__row:hover { background: rgba(84, 200, 238, 0.12); }
 .floating a { width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; box-shadow: 0 10px 30px -6px rgba(0, 0, 0, 0.6); }
 .floating__wa { background: var(--wa); color: #fff; position: relative; }
 .floating__wa::before { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--wa); animation: ping 2s infinite; }
+.floating__top { position: relative; justify-self: center; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; color: var(--cyan); background: rgba(10, 16, 32, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 10px 30px -6px rgba(0, 0, 0, 0.6); }
+.floating__progress { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.floating__ring-bg, .floating__ring { fill: none; stroke-width: 3; }
+.floating__ring-bg { stroke: rgba(255, 255, 255, 0.1); }
+.floating__ring { stroke: var(--cyan); stroke-linecap: round; }
 .floating__call { background: linear-gradient(135deg, var(--cyan), var(--blue)); color: #fff; }
 @keyframes ping { to { transform: scale(1.6); opacity: 0; } }
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion';
 import { Menu, Phone, X } from 'lucide-react';
 import { NAV, PHONE, PHONE_DISPLAY } from '../data';
@@ -40,6 +41,7 @@ export default function Navbar() {
         </button>
       </div>
 
+      {createPortal(
       <AnimatePresence>
         {open && (
           <motion.div
@@ -49,6 +51,7 @@ export default function Navbar() {
             exit={{ clipPath: 'circle(0% at 92% 4%)' }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
+            <img className="mobile-menu__logo" src="/media/logo-white.png" alt="Euro Water & Heat Proofing" width="130" height="39" />
             <button className="mobile-menu__close" onClick={() => setOpen(false)} aria-label="Close menu">
               <X />
             </button>
@@ -76,7 +79,9 @@ export default function Navbar() {
             </motion.a>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence>,
+      document.body
+      )}
     </header>
   );
 }

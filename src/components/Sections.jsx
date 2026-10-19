@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import {
+  ArrowUp,
   BrickWall,
   Calculator,
   CheckCircle2,
@@ -458,9 +459,38 @@ export function Footer() {
 }
 
 /* ---------------- Floating buttons ---------------- */
+function ScrollTop() {
+  const { scrollY, scrollYProgress } = useScroll();
+  const [show, setShow] = useState(false);
+  useMotionValueEvent(scrollY, 'change', (y) => setShow(y > 600));
+  return (
+    <AnimatePresence>
+      {show && (
+        <motion.button
+          className="floating__top"
+          aria-label="Back to top"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          initial={{ opacity: 0, scale: 0.4, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.4, y: 20 }}
+          whileHover={{ y: -4 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <svg className="floating__progress" viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="21" className="floating__ring-bg" />
+            <motion.circle cx="24" cy="24" r="21" className="floating__ring" style={{ pathLength: scrollYProgress }} />
+          </svg>
+          <ArrowUp size={20} />
+        </motion.button>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export function FloatingButtons() {
   return (
     <div className="floating">
+      <ScrollTop />
       <motion.a
         href={`tel:${PHONE}`}
         className="floating__call"
