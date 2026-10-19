@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { MapPin, Phone, User, X } from 'lucide-react';
+import { Calculator, MapPin, Phone, User, X } from 'lucide-react';
 import { WhatsAppIcon } from './Icons';
 import { RATE, waLink } from '../data';
 
@@ -17,6 +17,7 @@ const fmt = (n) => Math.round(n).toLocaleString('en-US');
 export default function QuoteModal({ service, initialSqft, onClose }) {
   const open = Boolean(service);
   const priced = service?.priced;
+  const fromPrice = service?.fromPrice;
   const [unit, setUnit] = useState(UNITS[0]);
   const [qty, setQty] = useState(1000);
   const [name, setName] = useState('');
@@ -57,6 +58,7 @@ export default function QuoteModal({ service, initialSqft, onClose }) {
     if (name.trim()) lines.push(`Name: ${name.trim()}`);
     if (phone.trim()) lines.push(`Phone: ${phone.trim()}`);
     if (address.trim()) lines.push(`Address: ${address.trim()}`);
+    if (fromPrice) lines.push(`Price: from Rs ${fmt(fromPrice)}`);
     if (!priced) lines.push('', 'Please arrange a free inspection.');
     window.open(waLink(lines.join('\n')), '_blank', 'noopener');
   };
@@ -86,7 +88,7 @@ export default function QuoteModal({ service, initialSqft, onClose }) {
               <div className="modal__icon">{service.icon}</div>
               <div>
                 <h3 id="quote-title">{service.title}</h3>
-                <p>{priced ? 'Get an instant cost estimate' : 'Request a free site inspection'}</p>
+                <p>{priced || fromPrice ? 'Get an instant cost estimate' : 'Request a free site inspection'}</p>
               </div>
               <button className="modal__close" onClick={onClose} aria-label="Close">
                 <X size={20} />
@@ -135,6 +137,19 @@ export default function QuoteModal({ service, initialSqft, onClose }) {
                 </>
               )}
 
+              {fromPrice && (
+                <>
+                  <div className="modal__strip">
+                    <Calculator size={16} /> Price: <strong>Rs {fmt(fromPrice)}</strong> starting from
+                  </div>
+                  <div className="modal__total">
+                    <span>Estimated cost</span>
+                    <strong><small className="modal__from">From</small> Rs {fmt(fromPrice)}</strong>
+                    <small>Base price, final quote after free inspection</small>
+                  </div>
+                </>
+              )}
+
               <p className="modal__label">
                 <User size={15} /> Your details <em className="modal__opt">(optional)</em>
               </p>
@@ -154,7 +169,7 @@ export default function QuoteModal({ service, initialSqft, onClose }) {
               </div>
 
               <p className="modal__note">
-                {priced
+                {priced || fromPrice
                   ? '* This is an approximate estimate. Final price is confirmed after a free site inspection.'
                   : '* Price depends on the size and condition — we will quote after a free site inspection.'}
               </p>

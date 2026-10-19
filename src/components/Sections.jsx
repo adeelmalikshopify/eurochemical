@@ -37,7 +37,6 @@ import {
 } from '../data';
 
 const ICONS = { Umbrella, Sun, ShowerHead, Container, Waves, BrickWall };
-const PRICED = ['roof', 'heat'];
 
 /* ---------------- Marquee ---------------- */
 export function Marquee() {
@@ -131,9 +130,9 @@ export function Services() {
                     <div className="service__foot">
                       <button
                         className="service__cta"
-                        onClick={() => setQuote({ title: s.title, icon: <Icon size={24} />, priced: PRICED.includes(s.key) })}
+                        onClick={() => setQuote({ title: s.title, icon: <Icon size={24} />, priced: !s.fromPrice, fromPrice: s.fromPrice })}
                       >
-                        {PRICED.includes(s.key) ? 'Calculate Estimate →' : 'Get Free Quote →'}
+                        {s.fromPrice ? 'Get Quote →' : 'Calculate Estimate →'}
                       </button>
                       <a className="service__wa" href={waLink(`Assalam o Alaikum! I need a quote for ${s.title}.`)} target="_blank" rel="noopener noreferrer" aria-label={`Get quote for ${s.title} on WhatsApp`}>
                         <WhatsAppIcon size={18} />
