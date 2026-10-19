@@ -25,7 +25,7 @@ export const SERVICES = [
     desc: 'Seamless, joint-free membrane that stops seepage and leakage for good — even in heavy monsoon rains.',
     price: `Rs ${RATE} / sq. ft.`,
     icon: 'Umbrella',
-    img: '/media/svc-roof.webp',
+    img: '/media/svc-roof-roller.webp',
     points: ['Polymer-based seamless coating', '100% leak protection', 'Suitable for all roof surfaces', '5 years warranty'],
   },
   {
@@ -35,7 +35,7 @@ export const SERVICES = [
     desc: 'High-reflective white coating that bounces back sunlight and keeps rooms noticeably cooler in summer.',
     price: `Rs ${RATE} / sq. ft.`,
     icon: 'Sun',
-    img: '/media/svc-heat.webp',
+    img: '/media/svc-heat-roller.webp',
     points: ['UV-reflective white coating', 'Cooler top-floor rooms', 'Lower AC & electricity bills', '5 years warranty'],
   },
   {
