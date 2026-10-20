@@ -102,9 +102,24 @@ export const BEFORE_AFTER = [
 ];
 
 // Real customer reviews only (with their permission). The section stays hidden while this is empty.
-// Example entry:
-// { name: 'Ahmed K.', area: 'DHA Phase 5, Lahore', text: 'Bohat acha kaam kiya...', time: '6:42 pm', stars: 5 },
-export const REVIEWS = [];
+// Copy the customer's message word for word. Mask phone numbers.
+// Fields: name, phone (masked), service, text, time; optional stars (only if the customer gave a rating).
+export const REVIEWS = [
+  {
+    name: 'Verified customer',
+    phone: '+92 303 49•• ••••',
+    service: 'Roof water & heat proofing',
+    text: 'Roof ki waterproofing aur heat proofing ke liye inki services li thin. Staff bohat cooperative tha aur unhon ne har cheez achay se explain ki. Kaam safai aur attention ke sath kiya gaya. Communication bhi achi thi. Agar aap roof protection ke liye professional service chahti hain, to inhein consider kar sakti hain.',
+    time: '11:01 pm',
+  },
+  {
+    name: 'Verified customer',
+    phone: '+92 347 09•• ••••',
+    service: 'Roof water & heat proofing',
+    text: 'Maine apni roof par chemical waterproofing aur heat proofing ka kaam karwaya. Team kaam mein bohat professional thi aur finishing bhi achi thi. Ghar mein garmi aur seepage ke maslay ko address karne ke liye inki service li, aur overall mera experience bohat acha raha. Highly recommended!',
+    time: '11:03 pm',
+  },
+];
 
 // Placeholder figures — confirm real numbers with the client
 export const STATS = [
